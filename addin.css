@@ -182,11 +182,6 @@ body {
     opacity: 0.5;
 }
 
-.alert {
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
 
 .btn-refresh {
     background: linear-gradient(135deg, #e55a2b 0%, #d4761a 100%);
@@ -197,6 +192,8 @@ body {
     transition: all 0.3s ease;
     font-weight: 500;
     box-shadow: 0 4px 15px rgba(229, 90, 43, 0.3);
+    display: inline-flex;
+    align-items: center;
 }
 
 .btn-refresh:hover {

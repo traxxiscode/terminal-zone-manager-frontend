@@ -10,44 +10,32 @@
     <script src="https://cdn.jsdelivr.net/npm/mg-api-js"></script>
 </head>
 <body>
-    <div id="terminalReportZones">
-        <div class="header">
-            <div class="container">
-                <div class="header-content">
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-                            <img src="https://cdn.baseline.is/static/content/logos/mDtvptChQ3XwBLuxuu5hip-lala.svg"
-                                 alt="Logo" class="company-logo"
-                                 onerror="this.style.display='none';">
-                        </div>
-                        <div class="col">
-                            <h1 class="header-title">
-                                <i class="fas fa-map-marked-alt me-2"></i>Terminal Report Zone Manager
-                            </h1>
-                        </div>
-                        <div class="col-auto">
-                            <div class="header-buttons">
-                                <button class="btn btn-refresh" onclick="refreshZones()">
-                                    <i class="fas fa-sync-alt me-2"></i>Refresh
-                                </button>
-                                <button class="btn btn-create-zone" onclick="openCreateZone()">
-                                    <i class="fas fa-plus me-2"></i>Create Zone
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div id="terminalReportZones" style="display:none;">
+
+        <!-- Header actions injected into the Geotab dashboard header -->
+        <div data-suite-actions style="display:none;">
+            <button class="btn btn-refresh btn-loading" id="refreshBtn" onclick="refreshZones()">
+                <span class="btn-text" style="display:inline-flex;align-items:center;">
+                    <i class="fas fa-sync-alt me-2"></i><span class="btn-label">Refresh</span>
+                </span>
+                <span class="btn-loading-text" style="display:none;">
+                    <span class="spinner-border spinner-border-sm me-1" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </span>
+                    Loading...
+                </span>
+            </button>
+            <button class="btn btn-create-zone" onclick="openCreateZone()">
+                <i class="fas fa-plus me-2"></i>Create Zone
+            </button>
         </div>
 
         <div class="container main-container">
-            <div id="alertContainer"></div>
-            
             <div class="row">
                 <!-- Regular Zones -->
                 <div class="col-lg-6 mb-4">
-                    <div class="zone-container p-3" id="regularZones" 
-                         ondrop="drop(event, 'regular')" 
+                    <div class="zone-container p-3" id="regularZones"
+                         ondrop="drop(event, 'regular')"
                          ondragover="allowDrop(event)"
                          ondragenter="dragEnter(event)"
                          ondragleave="dragLeave(event)">
@@ -56,7 +44,7 @@
                             <div class="zone-count" id="regularCount">0 zones</div>
                         </div>
                         <div class="search-container">
-                            <input type="text" class="form-control search-input" id="regularSearch" 
+                            <input type="text" class="form-control search-input" id="regularSearch"
                                    placeholder="Search all zones..." onkeyup="filterZones('regular')">
                         </div>
                         <div id="regularZonesList">
@@ -68,11 +56,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Terminal Report Zones -->
                 <div class="col-lg-6 mb-4">
-                    <div class="zone-container p-3" id="terminalZones" 
-                         ondrop="drop(event, 'terminal')" 
+                    <div class="zone-container p-3" id="terminalZones"
+                         ondrop="drop(event, 'terminal')"
                          ondragover="allowDrop(event)"
                          ondragenter="dragEnter(event)"
                          ondragleave="dragLeave(event)">
@@ -81,7 +69,7 @@
                             <div class="zone-count" id="terminalCount">0 zones</div>
                         </div>
                         <div class="search-container">
-                            <input type="text" class="form-control search-input aqua" id="terminalSearch" 
+                            <input type="text" class="form-control search-input aqua" id="terminalSearch"
                                    placeholder="Search terminal report zones..." onkeyup="filterZones('terminal')">
                         </div>
                         <div id="terminalZonesList">
@@ -95,7 +83,8 @@
                 </div>
             </div>
         </div>
-    </div>
+
+    </div><!-- /#terminalReportZones -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="addin.js"></script>
